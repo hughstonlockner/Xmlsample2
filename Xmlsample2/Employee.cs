@@ -21,5 +21,7 @@ namespace Xmlsample2
         [XmlElement("Today's Date")]
 
         public DateTime EntryDate { get; set; }
+        [XmlIgnore]
+        public string jobRole { get; set; }
     }
 }

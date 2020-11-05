@@ -17,24 +17,32 @@ namespace Xmlsample2
 
             Employee emp = new Employee();
 
-            emp.ID = 123;
+            /*emp.ID = 123;
             emp.Name = "Hughston";
             emp.ssNumber = 123456789;
             emp.EntryDate = DateTime.Now;
+            emp.jobRole = "Ninja";*/
 
             Console.WriteLine($"Employee ID: {emp.ID} \nEmployee Name: {emp.Name} \nEmployee SS#: {emp.ssNumber} \nDate Created: {emp.EntryDate}");
 
             string FilePath = "c:/Temp/";
             string FileName = "Samurai.xml";
 
-            TextWriter writer = new StreamWriter(FilePath + FileName);
+            //TextWriter writer = new StreamWriter(FilePath + FileName);
 
-            XmlSerializer ser = new XmlSerializer(typeof(Employee));
+            //XmlSerializer ser = new XmlSerializer(typeof(Employee));
 
-            ser.Serialize(writer, emp);
-            writer.Close();
+            //ser.Serialize(writer, emp);
+            //writer.Close();
 
-            Console.ReadLine();
+            XmlSerializer des = new XmlSerializer(typeof(Employee));
+            using (XmlReader reader = XmlReader.Create(FilePath + FileName))
+            {
+                emp = (Employee)des.Deserialize(reader);
+                Console.WriteLine($"Employee ID: {emp.ID} \nEmployee Name: {emp.Name}\nEmployee SS#: {emp.ssNumber} \nDate Created: {emp.EntryDate}");
+            }
+
+                Console.ReadLine();
             
         }
     }
