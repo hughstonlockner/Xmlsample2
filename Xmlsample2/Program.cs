@@ -18,14 +18,14 @@ namespace Xmlsample2
             Employee emp = new Employee();
 
             emp.ID = 123;
-            emp.Name = "Ninja Nerd";
+            emp.Name = "Hughston";
             emp.ssNumber = 123456789;
             emp.EntryDate = DateTime.Now;
 
             Console.WriteLine($"Employee ID: {emp.ID} \nEmployee Name: {emp.Name} \nEmployee SS#: {emp.ssNumber} \nDate Created: {emp.EntryDate}");
 
             string FilePath = "c:/Temp/";
-            string FileName = "Ninja.xml";
+            string FileName = "Samurai.xml";
 
             TextWriter writer = new StreamWriter(FilePath + FileName);
 
